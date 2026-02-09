@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZSzJS Vonat Zrt. - Jegyvásárlás</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ZSzJS Vonat Zrt.</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Főoldal</a></li>
+                    <li><a href="timetable.html">Menetrend</a></li>
+                    <li><a href="#">Információk</a></li>
+                    <li><a href="#">Kapcsolat</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Üdvözöljük a ZSzJS Vonat Zrt. honlapján!</h2>
+                <p>Gyorsan és kényelmesen vásároljon jegyet online.</p>
+            </div>
+        </section>
+
+        <section class="ticket-form">
+            <div class="container">
+                <h2>Jegyvásárlás</h2>
+                <form id="ticketForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="departure">Indulási állomás:</label>
+                            <select id="departure" name="departure" required>
+                                <option value="">Honnan</option>
+                                <option value="">be</option>
+                                <option value="Budapest">kene</option>
+                                <option value="Szeged">majd</option>
+                                <option value="Debrecen">tolteni</option>
+                                <option value="Miskolc">adatbazist</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="arrival">Érkezési állomás:</label>
+                            <select id="arrival" name="arrival" required>
+                                <option value="">Hova</option>
+                                <option value="">be</option>
+                                <option value="Budapest">kene</option>
+                                <option value="Szeged">majd</option>
+                                <option value="Debrecen">tolteni</option>
+                                <option value="Miskolc">adatbazist</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Utazás dátuma:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Utazás időpontja:</label>
+                            <select id="time" name="time" required>
+                                <option value="">Válasszon időpontot</option>
+                                <option value="morning">Reggel (6:00 - 12:00)</option>
+                                <option value="afternoon">Délután (12:00 - 18:00)</option>
+                                <option value="evening">Este (18:00 - 24:00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adults">Felnőtt utasok száma:</label>
+                            <input type="number" id="adults" name="adults" min="1" max="10" value="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="children">Gyerek utasok száma:</label>
+                            <input type="number" id="children" name="children" min="0" max="10" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="class">Jegy osztálya:</label>
+                            <select id="class" name="class" required>
+                                <option value="economy">Másodosztály</option>
+                                <option value="first">Első osztály</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">Jegy vásárlása</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ZSzJS Vonat Zrt. Minden jog fenntartva.</p>
+            <p>Telefon: +36 1 234 5678 | Email: info@zszjsvonat.hu</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

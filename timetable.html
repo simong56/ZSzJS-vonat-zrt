@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZSzJS Vonat Zrt. - Menetrend</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ZSzJS Vonat Zrt.</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Főoldal</a></li>
+                    <li><a href="timetable.html">Menetrend</a></li>
+                    <li><a href="#">Információk</a></li>
+                    <li><a href="#">Kapcsolat</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="timetable">
+            <div class="container">
+                <h2>Menetrend</h2>
+                <p>Válasszon útvonalat és időpontot az utazásához.</p>
+
+                <div class="timetable-controls">
+                    <input type="text" id="routeFilter" placeholder="Útvonal keresése...">
+                    <button id="filterBtn" class="btn">Szűrés</button>
+                </div>
+
+                <table id="timetable">
+                    <thead>
+                        <tr>
+                            <th>Útvonal</th>
+                            <th>Indulás</th>
+                            <th>Érkezés</th>
+                            <th>Utazási idő</th>
+                            <th>Gyakoriság</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Budapest → Szeged</td>
+                            <td>07:15</td>
+                            <td>09:45</td>
+                            <td>2 óra 30 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Budapest → Debrecen</td>
+                            <td>08:30</td>
+                            <td>11:15</td>
+                            <td>2 óra 45 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Budapest → Miskolc</td>
+                            <td>09:45</td>
+                            <td>12:30</td>
+                            <td>2 óra 45 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Budapest → Pécs</td>
+                            <td>10:20</td>
+                            <td>13:10</td>
+                            <td>2 óra 50 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Szeged → Budapest</td>
+                            <td>12:00</td>
+                            <td>14:30</td>
+                            <td>2 óra 30 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Debrecen → Budapest</td>
+                            <td>13:15</td>
+                            <td>16:00</td>
+                            <td>2 óra 45 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Miskolc → Budapest</td>
+                            <td>14:30</td>
+                            <td>17:15</td>
+                            <td>2 óra 45 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Pécs → Budapest</td>
+                            <td>15:45</td>
+                            <td>18:35</td>
+                            <td>2 óra 50 perc</td>
+                            <td>Minden nap</td>
+                        </tr>
+                        <tr>
+                            <td>Budapest → Szeged (Expressz)</td>
+                            <td>18:00</td>
+                            <td>20:15</td>
+                            <td>2 óra 15 perc</td>
+                            <td>Hétfő-Péntek</td>
+                        </tr>
+                        <tr>
+                            <td>Budapest → Debrecen (Expressz)</td>
+                            <td>19:30</td>
+                            <td>22:00</td>
+                            <td>2 óra 30 perc</td>
+                            <td>Hétfő-Péntek</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ZSzJS Vonat Zrt. Minden jog fenntartva.</p>
+            <p>Telefon: +36 1 234 5678 | Email: info@zszjsvonat.hu</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
