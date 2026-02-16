@@ -1,14 +1,14 @@
 /* Color Palette Variables */
 :root {
     /* Primary Brand Colors */
-    --primary-color: #1a3e72;           /* Dark blue for headers, accents */
-    --primary-light: #e3f2fd;          /* Light blue for backgrounds */
-    --primary-darker: #0d2c5e;         /* Even darker blue for hover effects */
+    --primary-color: #00CC66;           /* Dark blue for headers, accents */
+    --primary-light: #FFCBAE;          /* Light blue for backgrounds */
+    --primary-darker: #de8250;         /* Even darker blue for hover effects */
     
     /* Secondary Colors */
-    --secondary-color: #4caf50;        /* Green for buttons, success states */
-    --secondary-dark: #45a049;         /* Darker green for hover */
-    --secondary-darker: #2e7d32;       /* Even darker green for active states */
+    --secondary-color: #c7ad68;        /* Green for buttons, success states */
+    --secondary-dark: #F6E7BC;         /* Darker green for hover */
+    --secondary-darker: #F6E7BC;       /* Even darker green for active states */
     
     /* Neutral Colors */
     --text-color: #333333;             /* Primary text color */
@@ -26,7 +26,7 @@
     --table-row-hover: #e3f2fd;       /* Row hover background */
     
     /* Form Colors */
-    --form-focus-border: #4caf50;     /* Form field focus border */
+    --form-focus-border: #dfc30a;     /* Form field focus border */
     --form-background: #ffffff;       /* Form field background */
 }
 

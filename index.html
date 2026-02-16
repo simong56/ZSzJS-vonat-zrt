@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZSzJS Vonat Zrt. - Jegyvásárlás</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sztalj.css">
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
                     <li><a href="index.html">Főoldal</a></li>
                     <li><a href="timetable.html">Menetrend</a></li>
                     <li><a href="#">Információk</a></li>
-                    <li><a href="#">Kapcsolat</a></li>
+                    <li><a href="kapcsolat.html">Kapcsolat</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,24 +37,24 @@
                         <div class="form-group">
                             <label for="departure">Indulási állomás:</label>
                             <select id="departure" name="departure" required>
-                                <option value="">Honnan</option>
-                                <option value="">be</option>
-                                <option value="Budapest">kene</option>
-                                <option value="Szeged">majd</option>
-                                <option value="Debrecen">tolteni</option>
-                                <option value="Miskolc">adatbazist</option>
+                                <option value="" disabled selected>Válasszon indulási helyet</option>
+                                <option value="Budapest">Budapest</option>
+                                <option value="Szeged">Szeged</option>
+                                <option value="Debrecen">Debrecen</option>
+                                <option value="Miskolc">Miskolc</option>
+                                <option value="Győr">Győr</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="arrival">Érkezési állomás:</label>
                             <select id="arrival" name="arrival" required>
-                                <option value="">Hova</option>
-                                <option value="">be</option>
-                                <option value="Budapest">kene</option>
-                                <option value="Szeged">majd</option>
-                                <option value="Debrecen">tolteni</option>
-                                <option value="Miskolc">adatbazist</option>
+                                <option value="" disabled selected>Válasszon célállomást</option>
+                                <option value="Budapest">Budapest</option>
+                                <option value="Szeged">Szeged</option>
+                                <option value="Debrecen">Debrecen</option>
+                                <option value="Miskolc">Miskolc</option>
+                                <option value="Győr">Győr</option>
                             </select>
                         </div>
                     </div>
