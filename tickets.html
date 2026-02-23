@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ZSzJS Vonat Zrt. - Jegyeim</title>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <link rel="stylesheet" href="css/sztalj.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>ZSzJS Vonat Zrt.</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Főoldal</a></li>
+                        <li><a href="tickets.html">Jegyeim</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <h2>Jegyeim</h2>
+                    <p>Megvásárolt jegyek listája</p>
+                </div>
+            </section>
+
+            <section class="tickets-section">
+                <div class="container">
+                    <div class="table-wrapper">
+                        <table id="ticketsTable">
+                            <thead>
+                                <tr>
+                                    <th>Foglalás dátuma</th>
+                                    <th>Utas neve</th>
+                                    <th>Email</th>
+                                    <th>Telefon</th>
+                                    <th>Honnan</th>
+                                    <th>Hova</th>
+                                    <th>Indulás</th>
+                                    <th>Felnőttek</th>
+                                    <th>Gyerekek</th>
+                                    <th>Osztály</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ticketsBody">
+                                <tr>
+                                    <td colspan="10" class="loading">Betöltés...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="noTickets" class="no-tickets" style="display: none;">
+                            Nincs megjeleníthető jegy
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2023 ZSzJS Vonat Zrt. Minden jog fenntartva.</p>
+                <p>Telefon: +36 1 234 5678 | Email: info@zszjsvonat.hu</p>
+            </div>
+        </footer>
+
+        <script>
+            const supabaseUrl = "https://tsizknpqvzvhsfwpatgc.supabase.co";
+            const supabaseKey =
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzaXprbnBxdnp2aHNmd3BhdGdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyMTg3NDUsImV4cCI6MjA4Njc5NDc0NX0.ojcpA7XKkTkNeOCpmcNKUFspmmOB9wGPEf8fxAl9Pig";
+
+            const db = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+            function getStationName(stations, stationId) {
+                const station = stations.find(s => {
+                    const id = s.id || s.station_id || s[Object.keys(s).find(k => k.includes('id'))];
+                    return id == stationId;
+                });
+                if (station) {
+                    return station.name || station.nev || station[Object.keys(station).find(k => typeof station[k] === 'string' && !k.includes('id'))] || 'Ismeretlen';
+                }
+                return 'Ismeretlen';
+            }
+
+            function formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('hu-HU', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+
+            function formatClass(osztaly) {
+                return osztaly === 1 ? 'Első osztály' : 'Másodosztály';
+            }
+
+            async function loadTickets() {
+                const tbody = document.getElementById('ticketsBody');
+                const noTickets = document.getElementById('noTickets');
+
+                try {
+                    const [ticketsResult, stationsResult] = await Promise.all([
+                        db.from('tickets').select('*').order('foglalas_datum', { ascending: false }),
+                        db.from('stations').select('*')
+                    ]);
+
+                    const tickets = ticketsResult.data;
+                    const stations = stationsResult.data || [];
+
+                    if (!tickets || tickets.length === 0) {
+                        tbody.innerHTML = '';
+                        noTickets.style.display = 'block';
+                        return;
+                    }
+
+                    noTickets.style.display = 'none';
+                    tbody.innerHTML = tickets.map(ticket => `
+                        <tr>
+                            <td>${formatDate(ticket.foglalas_datum)}</td>
+                            <td>${ticket.utas_nev || ''}</td>
+                            <td>${ticket.email || ''}</td>
+                            <td>${ticket.tel_szam || ''}</td>
+                            <td>${getStationName(stations, ticket.honnan)}</td>
+                            <td>${getStationName(stations, ticket.hova)}</td>
+                            <td>${formatDate(ticket.indulas_datum)}</td>
+                            <td>${ticket.felnott_szam || 0}</td>
+                            <td>${ticket.gyerek_szam || 0}</td>
+                            <td>${formatClass(ticket.osztaly)}</td>
+                        </tr>
+                    `).join('');
+                } catch (error) {
+                    console.error('Error loading tickets:', error);
+                    tbody.innerHTML = `<tr><td colspan="10" class="error">Hiba a betöltéskor: ${error.message}</td></tr>`;
+                }
+            }
+
+            loadTickets();
+        </script>
+    </body>
+</html>
