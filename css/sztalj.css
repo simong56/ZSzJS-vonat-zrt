@@ -31,11 +31,7 @@ body {
 }
 
 header {
-    background: linear-gradient(
-        to right,
-        var(--summer-green) 0%,
-        var(--summer-yellow) 140%
-    );
+    background: linear-gradient(to right, var(--summer-green) 0%, var(--summer-yellow) 140%);
     padding: 15px 0;
     border-bottom: 3px solid var(--summer-yellow);
 }
@@ -75,11 +71,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background: linear-gradient(
-        to right,
-        var(--summer-green) 0%,
-        var(--summer-yellow) 140%
-    );
+    background: linear-gradient(to right, var(--summer-green) 0%, var(--summer-yellow) 140%);
     padding: 40px 20px;
     text-align: center;
 }
@@ -140,8 +132,7 @@ nav ul li a:hover {
     font-size: 0.9rem;
 }
 
-input,
-select {
+input, select {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid var(--border-color);
@@ -149,11 +140,9 @@ select {
     background: var(--white);
     font-family: inherit;
     font-size: 1rem;
-    color: var(--text-dark);
 }
 
-input:focus,
-select:focus {
+input:focus, select:focus {
     outline: 2px solid var(--summer-green);
     border-color: var(--summer-green);
 }
@@ -169,16 +158,11 @@ select:focus {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
-    transition: 0.1s background;
     text-transform: uppercase;
 }
 
 .btn:hover {
-    background: color-mix(in srgb, var(--summer-green), black 20%);
-}
-
-.btn:active {
-    background: var(--summer-green);
+    background: #00a352;
 }
 
 footer {
@@ -188,74 +172,35 @@ footer {
     text-align: center;
 }
 
-footer p {
-    font-size: 0.85rem;
-    margin-bottom: 5px;
-}
-
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    .hero h2 {
-        font-size: 1.4rem;
-    }
-    .form-group {
-        min-width: 100%;
-    }
-}
-
-.tickets-section {
-    padding: 30px 0 50px;
-    background: var(--bg-light);
-}
-
-.table-wrapper {
-    background: var(--white);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
-}
-
-#ticketsTable {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-}
-
-#ticketsTable th,
-#ticketsTable td {
-    padding: 12px 10px;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-}
-
-#ticketsTable th {
-    background: var(--summer-green);
-    color: var(--white);
+/* Pop-up értesítések */
+.popup-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: #ffffff;
     font-weight: 500;
-    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.4s ease-in-out;
 }
 
-#ticketsTable tr:hover {
-    background: var(--bg-light);
+.popup-notification.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-#ticketsTable .loading,
-#ticketsTable .error,
-.no-tickets {
-    text-align: center;
-    padding: 30px;
-    color: var(--text-dark);
+.popup-notification.success {
+    background-color: var(--summer-green);
+    border-left: 5px solid #008542;
 }
 
-.no-tickets {
-    background: var(--white);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    margin-top: 20px;
+.popup-notification.error {
+    background-color: var(--summer-pink);
+    border-left: 5px solid #b32d2e;
 }

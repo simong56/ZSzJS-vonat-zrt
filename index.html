@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="css/sztalj.css" />
     </head>
     <body>
+        <div id="popup-notification" class="popup-notification"></div>
+
         <header>
             <div class="container">
                 <h1>ZSzJS Vonat Zrt.</h1>
@@ -35,32 +37,15 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="utas_nev">Utas neve:</label>
-                                <input
-                                    type="text"
-                                    id="utas_nev"
-                                    name="utas_nev"
-                                    required
-                                />
+                                <input type="text" id="utas_nev" name="utas_nev" required />
                             </div>
-
                             <div class="form-group">
                                 <label for="email">Email cím:</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                />
+                                <input type="email" id="email" name="email" required />
                             </div>
-
                             <div class="form-group">
                                 <label for="tel_szam">Telefonszám:</label>
-                                <input
-                                    type="tel"
-                                    id="tel_szam"
-                                    name="tel_szam"
-                                    required
-                                />
+                                <input type="tel" id="tel_szam" name="tel_szam" required />
                             </div>
                         </div>
 
@@ -68,18 +53,13 @@
                             <div class="form-group">
                                 <label for="departure">Honnan:</label>
                                 <select id="departure" name="honnan" required>
-                                    <option value="" disabled selected>
-                                        Válasszon indulási helyet
-                                    </option>
+                                    <option value="" disabled selected>Válasszon indulási helyet</option>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="arrival">Hova:</label>
                                 <select id="arrival" name="hova" required>
-                                    <option value="" disabled selected>
-                                        Válasszon célállomást
-                                    </option>
+                                    <option value="" disabled selected>Válasszon célállomást</option>
                                 </select>
                             </div>
                         </div>
@@ -87,61 +67,28 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="date">Utazás dátuma:</label>
-                                <input
-                                    type="date"
-                                    id="date"
-                                    name="date"
-                                    required
-                                />
+                                <input type="date" id="date" name="date" required />
                             </div>
-
                             <div class="form-group">
                                 <label for="time">Időpont:</label>
                                 <select id="time" name="time" required>
-                                    <option value="">
-                                        Válasszon időpontot
-                                    </option>
-                                    <option value="06:00:00">
-                                        Reggel (6:00 - 12:00)
-                                    </option>
-                                    <option value="12:00:00">
-                                        Délután (12:00 - 18:00)
-                                    </option>
-                                    <option value="18:00:00">
-                                        Este (18:00 - 24:00)
-                                    </option>
+                                    <option value="">Válasszon időpontot</option>
+                                    <option value="06:00:00">Reggel (6:00 - 12:00)</option>
+                                    <option value="12:00:00">Délután (12:00 - 18:00)</option>
+                                    <option value="18:00:00">Este (18:00 - 24:00)</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="felnott_szam"
-                                    >Felnőttek száma:</label
-                                >
-                                <input
-                                    type="number"
-                                    id="felnott_szam"
-                                    name="felnott_szam"
-                                    min="1"
-                                    max="10"
-                                    value="1"
-                                    required
-                                />
+                                <label for="felnott_szam">Felnőttek száma:</label>
+                                <input type="number" id="felnott_szam" name="felnott_szam" min="1" max="10" value="1" required />
                             </div>
-
                             <div class="form-group">
                                 <label for="gyerek_szam">Gyerekek száma:</label>
-                                <input
-                                    type="number"
-                                    id="gyerek_szam"
-                                    name="gyerek_szam"
-                                    min="0"
-                                    max="10"
-                                    value="0"
-                                />
+                                <input type="number" id="gyerek_szam" name="gyerek_szam" min="0" max="10" value="0" />
                             </div>
-
                             <div class="form-group">
                                 <label for="osztaly">Osztály:</label>
                                 <select id="osztaly" name="osztaly" required>
@@ -151,9 +98,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn">
-                            Jegy vásárlása
-                        </button>
+                        <button type="submit" class="btn">Jegy vásárlása</button>
                     </form>
                 </div>
             </section>
@@ -168,36 +113,26 @@
 
         <script>
             const supabaseUrl = "https://tsizknpqvzvhsfwpatgc.supabase.co";
-            const supabaseKey =
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzaXprbnBxdnp2aHNmd3BhdGdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyMTg3NDUsImV4cCI6MjA4Njc5NDc0NX0.ojcpA7XKkTkNeOCpmcNKUFspmmOB9wGPEf8fxAl9Pig";
-
+            const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzaXprbnBxdnp2aHNmd3BhdGdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyMTg3NDUsImV4cCI6MjA4Njc5NDc0NX0.ojcpA7XKkTkNeOCpmcNKUFspmmOB9wGPEf8fxAl9Pig";
             const db = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+            function showNotification(message, type = 'success') {
+                const notification = document.getElementById('popup-notification');
+                notification.textContent = message;
+                notification.classList.remove('success', 'error', 'show');
+                notification.classList.add(type);
+                setTimeout(() => { notification.classList.add('show'); }, 10);
+                setTimeout(() => { notification.classList.remove('show'); }, 3000);
+            }
 
             async function loadStations() {
                 const { data, error } = await db.from("stations").select("*");
                 if (data) {
-                    const departureSelect =
-                        document.getElementById("departure");
+                    const departureSelect = document.getElementById("departure");
                     const arrivalSelect = document.getElementById("arrival");
                     data.forEach((station) => {
-                        const stationId =
-                            station.id ||
-                            station.station_id ||
-                            station[
-                                Object.keys(station).find((k) =>
-                                    k.includes("id"),
-                                )
-                            ];
-                        const stationName =
-                            station.name ||
-                            station.nev ||
-                            station[
-                                Object.keys(station).find(
-                                    (k) =>
-                                        typeof station[k] === "string" &&
-                                        !k.includes("id"),
-                                )
-                            ];
+                        const stationId = station.id || station.station_id;
+                        const stationName = station.name || station.nev;
                         const option = `<option value="${stationId}">${stationName}</option>`;
                         departureSelect.insertAdjacentHTML("beforeend", option);
                         arrivalSelect.insertAdjacentHTML("beforeend", option);
@@ -205,48 +140,29 @@
                 }
             }
 
-            document
-                .getElementById("ticketForm")
-                .addEventListener("submit", async (e) => {
-                    e.preventDefault();
+            document.getElementById("ticketForm").addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const ticketData = {
+                    utas_nev: document.getElementById("utas_nev").value,
+                    email: document.getElementById("email").value,
+                    tel_szam: parseInt(document.getElementById("tel_szam").value),
+                    honnan: parseInt(document.getElementById("departure").value),
+                    hova: parseInt(document.getElementById("arrival").value),
+                    indulas_datum: `${document.getElementById("date").value}T${document.getElementById("time").value}`,
+                    felnott_szam: parseInt(document.getElementById("felnott_szam").value),
+                    gyerek_szam: parseInt(document.getElementById("gyerek_szam").value),
+                    osztaly: parseInt(document.getElementById("osztaly").value),
+                };
 
-                    const date = document.getElementById("date").value;
-                    const time = document.getElementById("time").value;
-                    const indulas_datum = `${date}T${time}`;
+                const { error } = await db.from("tickets").insert(ticketData);
 
-                    const ticketData = {
-                        utas_nev: document.getElementById("utas_nev").value,
-                        email: document.getElementById("email").value,
-                        tel_szam: parseInt(
-                            document.getElementById("tel_szam").value,
-                        ),
-                        honnan: parseInt(
-                            document.getElementById("departure").value,
-                        ),
-                        hova: parseInt(
-                            document.getElementById("arrival").value,
-                        ),
-                        indulas_datum: indulas_datum,
-                        felnott_szam: parseInt(
-                            document.getElementById("felnott_szam").value,
-                        ),
-                        gyerek_szam: parseInt(
-                            document.getElementById("gyerek_szam").value,
-                        ),
-                        osztaly: parseInt(document.getElementById("osztaly").value),
-                    };
-
-                    const { error } = await db
-                        .from("tickets")
-                        .insert(ticketData);
-
-                    if (error) {
-                        alert("Hiba: " + error.message);
-                    } else {
-                        alert("Sikeres jegyvásárlás!");
-                        document.getElementById("ticketForm").reset();
-                    }
-                });
+                if (error) {
+                    showNotification("Hiba: " + error.message, "error");
+                } else {
+                    showNotification("Sikeres jegyvásárlás!", "success");
+                    document.getElementById("ticketForm").reset();
+                }
+            });
 
             loadStations();
         </script>
